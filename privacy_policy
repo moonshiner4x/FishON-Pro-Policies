@@ -1,0 +1,262 @@
+# Privacy Policy for FishON! Lite
+
+**Effective Date:** February 10, 2026  
+**Last Updated:** February 10, 2026
+
+---
+
+## Introduction
+
+FishON! Lite ("we," "our," or "the app") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our iOS application.
+
+**The Short Version:**
+- We don't collect, store, or share your personal data
+- Everything stays on your device (or your iCloud if you enable sync)
+- No tracking, no analytics, no third parties
+- We only access public river and tide data from government APIs
+
+---
+
+## Information We Collect
+
+### Information We DO NOT Collect
+
+**FishON! Lite does not collect, transmit, or store any personal information.** Specifically:
+
+- ❌ No email addresses or contact information
+- ❌ No location tracking or GPS history
+- ❌ No usage analytics or behavior tracking
+- ❌ No advertising identifiers
+- ❌ No device information beyond what's required for the app to function
+- ❌ No cookies or tracking technologies
+- ❌ No crash reports containing personal data
+
+### Information Stored Locally
+
+The app stores the following information **locally on your device only**:
+
+1. **Your Selections**
+   - River gauges you've added to your watchlist
+   - Tide stations you've added to your watchlist
+   
+2. **Your Customizations**
+   - Custom nicknames for rivers and tide stations
+   - Custom coordinate entries (if you manually enter coordinates)
+   - Flow range preferences (ideal fishing conditions)
+   
+3. **Your Purchases**
+   - Which regional map packs you've purchased
+   - Onboarding completion status
+
+**This data never leaves your device** unless you explicitly enable iCloud Sync (see below).
+
+---
+
+## iCloud Sync (Optional)
+
+### What is iCloud Sync?
+
+FishON! Lite offers **optional** iCloud synchronization to sync your preferences across your devices (iPhone, iPad, etc.).
+
+### How iCloud Sync Works
+
+When you enable iCloud Sync:
+
+- ✅ Your selections and preferences sync through **your personal iCloud account**
+- ✅ Data is **end-to-end encrypted** by Apple
+- ✅ Only **you** can access this data across your devices
+- ✅ We (the app developers) **cannot see or access** your iCloud data
+- ✅ You can **disable sync at any time** from Settings
+
+### What Syncs via iCloud
+
+- Selected river gauges
+- Selected tide stations  
+- Custom nicknames
+- Flow range preferences
+- Custom coordinates
+
+### What Does NOT Sync
+
+- Your purchase history (managed by Apple's StoreKit)
+- App settings unrelated to content
+
+**Important:** iCloud Sync is **completely optional**. The app works perfectly without it. All your data stays local on your device if you don't enable sync.
+
+---
+
+## Third-Party Data Sources
+
+FishON! Lite fetches **public data** from government APIs to show river and tide conditions. These services may have their own privacy policies:
+
+### Data Sources We Use
+
+1. **USGS Water Services API**
+   - URL: https://waterservices.usgs.gov/
+   - Purpose: Real-time river flow data
+   - Privacy: Public data, no user information sent
+   
+2. **Bureau of Reclamation**
+   - URL: https://www.usbr.gov/
+   - Purpose: Additional river monitoring data
+   - Privacy: Public data, no user information sent
+   
+3. **NOAA CO-OPS API (Tides and Currents)**
+   - URL: https://tidesandcurrents.noaa.gov/
+   - Purpose: Real-time tide and current data
+   - Privacy: Public data, no user information sent
+   
+4. **National Weather Service API**
+   - URL: https://weather.gov/
+   - Purpose: Weather conditions at river/tide locations
+   - Privacy: Public data, no user information sent
+
+**Important:** When you use the app, we send requests to these APIs to fetch data. These requests contain:
+- The specific gauge or station ID you're viewing
+- Your general location (state/region) to filter available gauges
+
+**We do NOT send:**
+- Your device ID
+- Your precise GPS location
+- Any personal identifying information
+
+---
+
+## In-App Purchases
+
+### How Purchases Work
+
+FishON! Lite offers regional map packs as in-app purchases. These purchases are processed through **Apple's App Store**.
+
+### What Apple Collects
+
+When you make a purchase:
+- Apple handles **all** payment processing
+- Apple stores your purchase history
+- We receive only a confirmation that you purchased a specific pack
+- We **never see** your payment information, credit card details, or billing address
+
+### Purchase Data Storage
+
+- Your purchase history is stored by **Apple**, not us
+- We store a simple list of which pack IDs you own **locally on your device**
+- You can restore purchases on new devices through Apple's system
+
+**Privacy Note:** We have no access to your financial information. All transactions are between you and Apple.
+
+---
+
+## Location Services
+
+### Location Permissions
+
+FishON! Lite **may request** location access for the following **optional** features:
+
+1. **Sorting rivers/tides by distance** - To show which gauges are closest to you
+2. **Map view** - To center the map on your current location
+
+### What We Do With Location
+
+- ✅ Location is used **only** for distance calculations and map display
+- ✅ Location data **never leaves your device**
+- ✅ We **do not track** or store your location
+- ✅ You can **deny location access** and the app still works (you just won't see distances)
+
+### Location is ALWAYS Optional
+
+The app works perfectly without location access. You can browse and monitor rivers/tides without sharing your location.
+
+---
+
+## Children's Privacy
+
+FishON! Lite does not knowingly collect personal information from anyone. The app is suitable for all ages and complies with COPPA (Children's Online Privacy Protection Act) by:
+
+- Not collecting any personal information
+- Not requiring account creation
+- Not including third-party advertising
+- Not tracking or profiling users of any age
+
+---
+
+## Data Security
+
+### How We Protect Your Data
+
+- ✅ All app data is stored **locally on your device** using Apple's secure storage APIs
+- ✅ If you enable iCloud Sync, data is encrypted by Apple
+- ✅ We use HTTPS for all API communications with government data sources
+- ✅ No data is transmitted to our servers (we don't have any!)
+
+### Your Control
+
+You have complete control over your data:
+
+- **Delete selections**: Remove any river or tide station from your watchlist anytime
+- **Reset app**: Delete all app data through iOS Settings → FishON! Lite → Reset
+- **Delete app**: Uninstalling the app removes all local data
+- **Disable iCloud**: Turn off sync in Settings, your iCloud data is preserved but stops syncing
+
+---
+
+## Changes to This Policy
+
+We may update this Privacy Policy from time to time. Changes will be reflected in:
+
+- The "Last Updated" date at the top of this policy
+- The app's Settings screen
+- App Store release notes (for significant changes)
+
+We encourage you to review this policy periodically.
+
+---
+
+## Your Rights
+
+Depending on your location, you may have rights including:
+
+- **Access**: You can access all your data directly in the app (it's all local!)
+- **Deletion**: Delete any or all data through the app or iOS Settings
+- **Portability**: Export your selections by viewing them in the app
+- **Opt-out**: Don't enable iCloud Sync if you don't want cloud storage
+
+**California Residents (CCPA):**
+- We do not "sell" your personal information
+- We do not "share" your personal information with third parties
+- We do not use personal information for targeted advertising
+
+**European Users (GDPR):**
+- We are not a data "controller" or "processor" because we don't collect personal data
+- No consent is required because no personal data is processed
+- Your app usage data stays on your device
+
+---
+
+## Contact Us
+
+If you have questions about this Privacy Policy or our practices:
+
+**Developer:** moonshinerXwerks  
+**App:** FishON! Lite  
+**Support:** john@moonshinerxwerks.com 
+**Website:** [Your website if you have one]
+
+---
+
+## Summary (TL;DR)
+
+✅ **We don't collect any personal data**  
+✅ **Everything stays on your device** (or your iCloud if you choose)  
+✅ **No tracking, no ads, no third parties**  
+✅ **You control all your data**  
+✅ **We only fetch public river/tide data from government APIs**  
+✅ **Apple handles all purchases** - we never see your payment info  
+✅ **Location is optional** and never tracked  
+
+**Bottom Line:** Your privacy is respected. We built this app to help you fish, not to collect your data.
+
+---
+
+**Version:** 1.0  
+**Effective Date:** February 10, 2026  
+**App Version:** FishON! Lite 1.0+
