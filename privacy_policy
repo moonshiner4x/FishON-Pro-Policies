@@ -1,262 +1,151 @@
-# Privacy Policy for FishON! Lite
+FishON! Pro™ Privacy Policy 
+Effective: February 21, 2026 · moonshinerXwerks LLC · Version 2.0 
+
+1. Overview 
+FishON! Pro is built on a simple principle: your personal fishing data is yours. Your catch logs, location names, GPS coordinates, photos, and preferences never leave your device unless you explicitly export them. This policy explains the one area where data does leave your device — the optional, opt-in anonymous fisheries telemetry system — and exactly what that means for your privacy. 
+
+2. Data That Stays on Your Device — Always 
+The following data is stored locally in the FishON! Pro app and is never transmitted to any server, shared with any third party, or included in any telemetry dataset, under any circumstances: 
+• Your name, email address, or any personal identity information 
+• The names you assign to rivers, sections, and fishing locations 
+• Precise GPS coordinates of your saved locations 
+• Catch logs, trip reports, and field observations in their complete form 
+• Photos attached to catches or trip reports 
+• Your fishing preferences, ideal flow ranges, and target species settings 
+• Your device ID, advertising ID, or any unique device identifier 
+• iCloud sync data — synced only between your own Apple devices via your iCloud account 
+
+3. Optional Anonymous Telemetry — Opt-In Only 
+FishON! Pro includes an optional, opt-in system that contributes anonymous data to a fisheries research dataset. This system is disabled by default. You are asked to enable it during onboarding and can change your choice at any time in Settings → Privacy. If you do not opt in, no data of any kind is transmitted. 
+When enabled, the system operates three parallel data pipelines. Each pipeline is described in full below. 
+
+3A. Anonymous Condition Telemetry (collection: telemetry_batches)
+This pipeline captures anonymized snapshots of river conditions at the time of your section visits, catches, and trip reports. It answers the research question: what environmental conditions are associated with successful fishing outcomes? 
+What is captured: 
+• A hashed, one-way section identifier — derived from river name, section index, and noisy rounded coordinates. Cannot be reversed to your section name. 
+• River conditions at visit time: flow (CFS with ±8% random noise), water temperature (±0.4°F noise), air temperature (±1.0°F noise) 
+• Condition score (0–100) at time of visit 
+• Catch outcome: species category (e.g. Salmon & Steelhead, Trout & Char) and general method (fly, spin, bait). Never the exact species name or lure. 
+• Trip session data: fish count bucketed into ranges (0, 1–3, 4–10, 11+), session duration bucketed (under 2h, 2–4h, 4–8h, 8h+), quality rating (1–5) 
+• Timestamp rounded to the nearest 15-minute window 
+What is never captured: 
+• Your section name, river name, or any user-assigned label 
+• Exact GPS coordinates — coordinates used to generate the section hash have ±0.003° noise applied first 
+• Exact fish counts or precise session durations 
+• Any user identity or device identifier 
+k-Anonymity enforcement: This pipeline only transmits data when a batch contains events from at least 10 distinct section identifiers. Your individual activity is never transmitted alone. 
+
+3B. Public Monitoring Station Visits (collection: gauge_pressure) 
+This pipeline records which federal monitoring stations are linked to sections you view. It answers the research question: which public monitoring infrastructure is in areas that anglers actively use? 
+What is captured: 
+• The public station identifier — e.g. USGS gauge code '14103000', NDBC buoy ID '46029', NOAA tide station ID '9435380'. These codes appear on government websites, academic papers, and fishing reports. They are public federal infrastructure identifiers. 
+• The station type: USGS river gauge, NOAA tide station, NDBC buoy, or Bureau of Reclamation • Date of visit (date only — no time component) 
+• Time of day bucket: early morning, morning, midday, evening, or night 
+• Day of week (1–7)
+• Current flow CFS at visit time — USGS gauges only. This is the same value publicly available at waterdata.usgs.gov at the same moment. 
+• App version 
+What is never captured: 
+• Which user visited the station — no user identity or device ID 
+• Your section name or location name 
+• Any data that could identify an individual angler 
+Privacy basis: Station codes are public federal infrastructure. Knowing that USGS gauge 14103000 receives angler app visits on Saturday mornings at 900–1100 CFS reveals nothing about any individual user. 
+
+3C. Geographic Grid Pressure (collection: grid_pressure) 
+This pipeline captures where along river corridors angling pressure and catch activity occurs, expressed as approximate geographic areas rather than precise coordinates. It enables seasonal pressure drift analysis — for example, tracking how angling pressure migrates upstream along a river corridor as a hatch progresses through the season. 
+How coordinates are protected: 
+Your GPS coordinates are rounded to the nearest 0.05 degree of latitude and longitude before any event object is created. This rounding happens on your device, in memory, before any data is prepared for transmission. The raw coordinate is discarded immediately. Only the rounded grid cell identifier is stored in the event. 
+At 45°N latitude, 0.05° corresponds to approximately 3.4 miles of latitude and 2.5 miles of longitude. Each grid cell covers roughly 10–15 square miles of river corridor. 
+What is captured: 
+• Grid cell identifier — a string like '44.95_-121.10' representing the rounded coordinate. Cannot be reversed to a precise location. 
+• Grid resolution marker: '0.05deg' — stored so historical data can be re-analyzed if resolution changes 
+• Event type: section visit, catch logged, or trip logged 
+• Date of visit (date only) 
+• Time of day bucket and day of week 
+• Species group (e.g. Salmon & Steelhead) — for catch and trip events only. Never the exact species name. 
+• Catch outcome (yes/no) — for catch and trip events only 
+• Fish count bucket (0, 1–3, 4–10, 11+) — for trip events only
+• Flow CFS rounded to nearest 10 — if available from conditions snapshot (already public USGS data) • Water temperature rounded to nearest whole degree °F — if available 
+What is never captured: 
+• Precise GPS coordinates — raw coordinates never leave your device in any form 
+• Your section or location name 
+• Any user identity or device identifier 
+• Exact fish counts or precise session times 
+No k-anonymity threshold applies to grid cells — a 10–15 square mile area inherently aggregates multiple anglers. Sparse cells (remote, rarely visited water) simply produce low data density, which is itself useful information for fisheries managers. 
+
+4. What Is and Is Not Transmitted — Summary
+Data Element 
+Transmitted? 
+Notes
+Your name or email 
+Never 
+Stays on device always
+Location names you created 
+Never 
+Stays on device always
+Precise GPS coordinates 
+Never 
+Rounded to 0.05° (3–4 miles) before any event is built
+Device or advertising ID 
+Never 
+No identifier of any kind is included
+Photos 
+Never 
+Stays on device always
+Complete catch logs 
+Never 
+Only anonymous, bucketed summary signals
+Exact species name (e.g. Winter Steelhead) 
+Never 
+Transmitted as broad group: Salmon & Steelhead
+Exact fish count 
+Never 
+Bucketed: 0, 1–3, 4–10, 11+
+Exact session duration 
+Never 
+Bucketed: <2h, 2–4h, 4–8h, 8h+
+Hashed section identifier 
+Pipeline 1 only 
+One-way SHA-256 hash — cannot be reversed
+Condition scores and flow data 
+Pipeline 1 only 
+With differential noise applied
+Public USGS/NOAA/NDBC station ID 
+Pipeline 2 only 
+Public federal infrastructure identifier
+Flow at gauge visit time 
+Pipeline 2 only 
+Same value on waterdata.usgs.gov
+0.05° grid cell identifier 
+Pipeline 3 only 
+3–4 mile area, not a precise location
+Time of day bucket 
+All pipelines 
+Early morning / morning / midday / evening / night
+Day of week 
+All pipelines 
+1–7 (no precise timestamp)
+
+5. Data Storage and Security 
+Telemetry data is transmitted via HTTPS to a Firebase Firestore database operated by Google Cloud (us-central1 region). No third-party analytics SDK is used — only direct HTTPS POST calls to the Firestore REST API. 
+• Data in transit: encrypted via TLS 1.2+ 
+• Data at rest: encrypted by Google Cloud Storage 
+• Client access: write-only. No client application can read the telemetry database. • Buffering: events are held in device memory only. They are not written to disk. If the app closes before a batch transmits, buffered events are discarded. 
+• No retry queue: events that fail to transmit are discarded, never persisted to storage. 
+6. Your Rights and Controls 
+You are in full control of whether any telemetry is collected. 
+• Opt in: During onboarding, you are shown a clear explanation of what data is shared before being asked to consent. No data transmits until you tap Yes. 
+• Opt out at any time: Settings → Privacy → Contribute to Fisheries Research. Toggle off to immediately stop all telemetry. Any buffered events are discarded at the moment consent is revoked. 
+• Deletion rights: Because no user identity is ever included in transmissions, we cannot retrieve and delete your specific data from the aggregate dataset. This is by design — the anonymization architecture makes it technically infeasible to re-associate transmitted data with any individual user. 
+• No sale of data: Your data is not sold. The anonymized fisheries dataset may be shared with or licensed to state fish and wildlife agencies, academic researchers, and conservation organizations for fisheries management purposes. 
+7. Children's Privacy 
+FishON! Pro is not directed at children under the age of 13. We do not knowingly collect any data from children under 13. The opt-in telemetry system does not collect any personal information from any user regardless of age. 
+8. Changes to This Policy 
+If we make material changes to what data is collected or how it is used, we will update the effective date of this policy and notify users via an in-app notice. Continued use of the app after notification constitutes acceptance of the updated policy.
+9. Contact 
+Questions about this privacy policy or the FishON! Pro telemetry system: 
+moonshinerXwerks LLC 
+Email: privacy@moonshinerxwerks.com 
+Website: moonshinerxwerks.com 
+FishON! Pro™ · moonshinerXwerks LLC · Version 2.0 · February 21, 2026 
+This document supersedes the FishON! Pro Privacy Policy version dated prior to February 21, 2026.
 
-**Effective Date:** February 10, 2026  
-**Last Updated:** February 10, 2026
-
----
-
-## Introduction
-
-FishON! Lite ("we," "our," or "the app") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our iOS application.
-
-**The Short Version:**
-- We don't collect, store, or share your personal data
-- Everything stays on your device (or your iCloud if you enable sync)
-- No tracking, no analytics, no third parties
-- We only access public river and tide data from government APIs
-
----
-
-## Information We Collect
-
-### Information We DO NOT Collect
-
-**FishON! Lite does not collect, transmit, or store any personal information.** Specifically:
-
-- ❌ No email addresses or contact information
-- ❌ No location tracking or GPS history
-- ❌ No usage analytics or behavior tracking
-- ❌ No advertising identifiers
-- ❌ No device information beyond what's required for the app to function
-- ❌ No cookies or tracking technologies
-- ❌ No crash reports containing personal data
-
-### Information Stored Locally
-
-The app stores the following information **locally on your device only**:
-
-1. **Your Selections**
-   - River gauges you've added to your watchlist
-   - Tide stations you've added to your watchlist
-   
-2. **Your Customizations**
-   - Custom nicknames for rivers and tide stations
-   - Custom coordinate entries (if you manually enter coordinates)
-   - Flow range preferences (ideal fishing conditions)
-   
-3. **Your Purchases**
-   - Which regional map packs you've purchased
-   - Onboarding completion status
-
-**This data never leaves your device** unless you explicitly enable iCloud Sync (see below).
-
----
-
-## iCloud Sync (Optional)
-
-### What is iCloud Sync?
-
-FishON! Lite offers **optional** iCloud synchronization to sync your preferences across your devices (iPhone, iPad, etc.).
-
-### How iCloud Sync Works
-
-When you enable iCloud Sync:
-
-- ✅ Your selections and preferences sync through **your personal iCloud account**
-- ✅ Data is **end-to-end encrypted** by Apple
-- ✅ Only **you** can access this data across your devices
-- ✅ We (the app developers) **cannot see or access** your iCloud data
-- ✅ You can **disable sync at any time** from Settings
-
-### What Syncs via iCloud
-
-- Selected river gauges
-- Selected tide stations  
-- Custom nicknames
-- Flow range preferences
-- Custom coordinates
-
-### What Does NOT Sync
-
-- Your purchase history (managed by Apple's StoreKit)
-- App settings unrelated to content
-
-**Important:** iCloud Sync is **completely optional**. The app works perfectly without it. All your data stays local on your device if you don't enable sync.
-
----
-
-## Third-Party Data Sources
-
-FishON! Lite fetches **public data** from government APIs to show river and tide conditions. These services may have their own privacy policies:
-
-### Data Sources We Use
-
-1. **USGS Water Services API**
-   - URL: https://waterservices.usgs.gov/
-   - Purpose: Real-time river flow data
-   - Privacy: Public data, no user information sent
-   
-2. **Bureau of Reclamation**
-   - URL: https://www.usbr.gov/
-   - Purpose: Additional river monitoring data
-   - Privacy: Public data, no user information sent
-   
-3. **NOAA CO-OPS API (Tides and Currents)**
-   - URL: https://tidesandcurrents.noaa.gov/
-   - Purpose: Real-time tide and current data
-   - Privacy: Public data, no user information sent
-   
-4. **National Weather Service API**
-   - URL: https://weather.gov/
-   - Purpose: Weather conditions at river/tide locations
-   - Privacy: Public data, no user information sent
-
-**Important:** When you use the app, we send requests to these APIs to fetch data. These requests contain:
-- The specific gauge or station ID you're viewing
-- Your general location (state/region) to filter available gauges
-
-**We do NOT send:**
-- Your device ID
-- Your precise GPS location
-- Any personal identifying information
-
----
-
-## In-App Purchases
-
-### How Purchases Work
-
-FishON! Lite offers regional map packs as in-app purchases. These purchases are processed through **Apple's App Store**.
-
-### What Apple Collects
-
-When you make a purchase:
-- Apple handles **all** payment processing
-- Apple stores your purchase history
-- We receive only a confirmation that you purchased a specific pack
-- We **never see** your payment information, credit card details, or billing address
-
-### Purchase Data Storage
-
-- Your purchase history is stored by **Apple**, not us
-- We store a simple list of which pack IDs you own **locally on your device**
-- You can restore purchases on new devices through Apple's system
-
-**Privacy Note:** We have no access to your financial information. All transactions are between you and Apple.
-
----
-
-## Location Services
-
-### Location Permissions
-
-FishON! Lite **may request** location access for the following **optional** features:
-
-1. **Sorting rivers/tides by distance** - To show which gauges are closest to you
-2. **Map view** - To center the map on your current location
-
-### What We Do With Location
-
-- ✅ Location is used **only** for distance calculations and map display
-- ✅ Location data **never leaves your device**
-- ✅ We **do not track** or store your location
-- ✅ You can **deny location access** and the app still works (you just won't see distances)
-
-### Location is ALWAYS Optional
-
-The app works perfectly without location access. You can browse and monitor rivers/tides without sharing your location.
-
----
-
-## Children's Privacy
-
-FishON! Lite does not knowingly collect personal information from anyone. The app is suitable for all ages and complies with COPPA (Children's Online Privacy Protection Act) by:
-
-- Not collecting any personal information
-- Not requiring account creation
-- Not including third-party advertising
-- Not tracking or profiling users of any age
-
----
-
-## Data Security
-
-### How We Protect Your Data
-
-- ✅ All app data is stored **locally on your device** using Apple's secure storage APIs
-- ✅ If you enable iCloud Sync, data is encrypted by Apple
-- ✅ We use HTTPS for all API communications with government data sources
-- ✅ No data is transmitted to our servers (we don't have any!)
-
-### Your Control
-
-You have complete control over your data:
-
-- **Delete selections**: Remove any river or tide station from your watchlist anytime
-- **Reset app**: Delete all app data through iOS Settings → FishON! Lite → Reset
-- **Delete app**: Uninstalling the app removes all local data
-- **Disable iCloud**: Turn off sync in Settings, your iCloud data is preserved but stops syncing
-
----
-
-## Changes to This Policy
-
-We may update this Privacy Policy from time to time. Changes will be reflected in:
-
-- The "Last Updated" date at the top of this policy
-- The app's Settings screen
-- App Store release notes (for significant changes)
-
-We encourage you to review this policy periodically.
-
----
-
-## Your Rights
-
-Depending on your location, you may have rights including:
-
-- **Access**: You can access all your data directly in the app (it's all local!)
-- **Deletion**: Delete any or all data through the app or iOS Settings
-- **Portability**: Export your selections by viewing them in the app
-- **Opt-out**: Don't enable iCloud Sync if you don't want cloud storage
-
-**California Residents (CCPA):**
-- We do not "sell" your personal information
-- We do not "share" your personal information with third parties
-- We do not use personal information for targeted advertising
-
-**European Users (GDPR):**
-- We are not a data "controller" or "processor" because we don't collect personal data
-- No consent is required because no personal data is processed
-- Your app usage data stays on your device
-
----
-
-## Contact Us
-
-If you have questions about this Privacy Policy or our practices:
-
-**Developer:** moonshinerXwerks  
-**App:** FishON! Lite  
-**Support:** john@moonshinerxwerks.com 
-**Website:** [Your website if you have one]
-
----
-
-## Summary (TL;DR)
-
-✅ **We don't collect any personal data**  
-✅ **Everything stays on your device** (or your iCloud if you choose)  
-✅ **No tracking, no ads, no third parties**  
-✅ **You control all your data**  
-✅ **We only fetch public river/tide data from government APIs**  
-✅ **Apple handles all purchases** - we never see your payment info  
-✅ **Location is optional** and never tracked  
-
-**Bottom Line:** Your privacy is respected. We built this app to help you fish, not to collect your data.
-
----
-
-**Version:** 1.0  
-**Effective Date:** February 10, 2026  
-**App Version:** FishON! Lite 1.0+
